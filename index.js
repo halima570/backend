@@ -74,6 +74,12 @@ app.get("/", function (req, res) {
 });
 
 //Start the server in port 8081
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://front1-one.vercel.app');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
 
 const server = app.listen(process.env.PORT || 8081, function () {
   const port = server.address().port;

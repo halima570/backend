@@ -2,8 +2,9 @@ const express=require('express')
 const dotenv=require("dotenv");
 const cors=require("cors");
 const { Configuration, OpenAIApi } = require("openai");
-
+require("./index");
 dotenv.config();
+require("./rss");
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -36,6 +37,7 @@ app.post("/", async (req, res) => {
     res.status(500).send(error);
   }
 });
+
 
 app.listen(5000, () => {
   console.log(` server on http://localhost:5000/`);
