@@ -39,8 +39,6 @@ app.post("/", async (req, res) => {
 });
 
 
-const server = app.listen(process.env.PORT || 5000, function () {
-  const port = server.address().port;
-
-  console.log("App started at port:", port);
+app.listen(5000, () => {
+  console.log(` server on http://localhost:5000/`);
 });

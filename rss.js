@@ -802,9 +802,8 @@ else if (req.query.source=='weekly'){
 res.send(articles)
 })
 
-const server = app.listen(process.env.PORT || 4000, function () {
-    const port = server.address().port;
-  
-    console.log("App started at port:", port);
-  });
+
+app.listen(4000,()=>{
+    console.log(`server tevhnology on http://localhost:4000/`)
+})
 
