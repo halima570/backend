@@ -11,6 +11,13 @@ const configuration = new Configuration({
 const openai = new OpenAIApi(configuration);
 const app = express();
 app.use(cors());
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', 'https://front1-git-master-halima570.vercel.app/');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+  next();
+});
+
 app.use(express.json());
 
 app.get("/", (req, res) => {
