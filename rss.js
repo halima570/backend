@@ -59,11 +59,10 @@ const   plant ='https://www.cntraveler.com/feed/rss'
  const bbc='https://skift.com/feed/'
  const weekly='https://www.travelingmom.com/feed/'
 
-app.use(cors())
 const parser=new RSSParser()
-app.use(cors())
 const axios = require('axios');
 
+app.use(cors())
 
 app.post('/email',async (req,res)=>{
     let follows=[]
@@ -437,13 +436,6 @@ axios.post('https://api.sendinblue.com/v3/smtp/email',emailData,{
 
 
 })
-app.use((req, res, next) => {
-    // Set the CORS headers
-    res.header('Access-Control-Allow-Origin', 'https://front1-pied.vercel.app');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  });
 
 
 app.get('/getNews',async (req,res)=>{
