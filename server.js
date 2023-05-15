@@ -2,6 +2,10 @@ const express=require('express')
 const dotenv=require("dotenv");
 const cors=require("cors");
 const { Configuration, OpenAIApi } = require("openai");
+const app = express();
+
+app.use(cors());
+
 require("./index");
 dotenv.config();
 require("./rss");
@@ -9,15 +13,6 @@ const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
-const app = express();
-app.use(cors());
-app.use((req, res, next) => {
-  res.setHeader('Access-Control-Allow-Origin', 'https://front1-git-master-halima570.vercel.app/');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
-  next();
-});
-
 app.use(express.json());
 
 app.get("/", (req, res) => {
