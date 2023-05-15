@@ -437,7 +437,10 @@ axios.post('https://api.sendinblue.com/v3/smtp/email',emailData,{
 
 
 })
-
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', 'https://front1-pied.vercel.app');
+    next();
+  });
 
 app.get('/getNews',async (req,res)=>{
     const articles=[]
