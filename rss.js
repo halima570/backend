@@ -63,13 +63,7 @@ const parser=new RSSParser()
 const axios = require('axios');
 
 app.use(cors())
-app.use((req, res, next) => {
-    // Set the CORS headers
-    res.header('Access-Control-Allow-Origin', 'https://front1-git-master-halima570.vercel.app/');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
-    res.header('Access-Control-Allow-Headers', 'Content-Type');
-    next();
-  });
+
 app.post('/email',async (req,res)=>{
     let follows=[]
     await axios.get('http://localhost:8081/follow?username='+req.body.username)
