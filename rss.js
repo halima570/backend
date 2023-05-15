@@ -438,9 +438,13 @@ axios.post('https://api.sendinblue.com/v3/smtp/email',emailData,{
 
 })
 app.use((req, res, next) => {
+    // Set the CORS headers
     res.header('Access-Control-Allow-Origin', 'https://front1-pied.vercel.app');
+    res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE');
+    res.header('Access-Control-Allow-Headers', 'Content-Type');
     next();
   });
+
 
 app.get('/getNews',async (req,res)=>{
     const articles=[]
