@@ -7,6 +7,9 @@ const passport = require("passport");
 require("./strategies/JwtStrategy");
 require("./strategies/LocalStrategy");
 require("./authenticate");
+const app = express();
+
+app.use(cors());
 
 const follow = require("./models/follow");
 const userRouter = require("./routes/userRoutes");
@@ -14,7 +17,6 @@ if (process.env.NODE_ENV !== "production") {
   // Load environment variables from .env file in non prod environments
   require("dotenv").config();
 }
-const app = express();
 //Add the client URL to the CORS policy
 const whitelist = process.env.WHITELISTED_DOMAINS
   ? process.env.WHITELISTED_DOMAINS.split(",")
@@ -31,7 +33,6 @@ const corsOptions = {
   credentials: true,
 };
 app.use(bodyParser.json());
-app.use(cors());
 //app.use(cors(corsOptions));
 app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', 'https://front1-git-master-halima570.vercel.app/');
