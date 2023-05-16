@@ -802,7 +802,7 @@ res.send(articles)
 })
 
 
-app.listen(4000,()=>{
+app.listen(process.env.PORT || 4000,()=>{
     console.log(`server tevhnology on http://localhost:4000/`)
 })
 
