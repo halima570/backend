@@ -1,6 +1,6 @@
-const express = require('express');
-const dotenv = require("dotenv");
-const cors = require("cors");
+const express=require('express')
+const dotenv=require("dotenv");
+const cors=require("cors");
 const { Configuration, OpenAIApi } = require("openai");
 const app = express();
 
@@ -19,7 +19,6 @@ app.get("/", (req, res) => {
   res.status(200).send({
     message: "hello from codex",
   });
-
 });
 
 app.post("/", async (req, res) => {
@@ -40,10 +39,8 @@ app.post("/", async (req, res) => {
     res.status(500).send(error);
   }
 });
-// Wildcard route handler for unspecified routes
-app.get('*', (req, res) => {
-  res.status(404).send('Page not found');
-});
-app.listen(5000, () => {
-  console.log(`Server is running on http://localhost:5000/`);
+
+
+app.listen(process.env.PORT || 5000, () => {
+  console.log(` server on http://localhost:5000/`);
 });
