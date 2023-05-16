@@ -16,9 +16,7 @@ const openai = new OpenAIApi(configuration);
 app.use(express.json());
 
 app.get("/", (req, res) => {
-  res.status(200).send({
-    message: "hello from codex",
-  });
+  res.send("hello from codex");console.log('wata ban');
 });
 
 app.post("/", async (req, res) => {
