@@ -63,7 +63,7 @@ const parser=new RSSParser()
 const axios = require('axios');
 
 app.use(cors())
-
+app.get('/',(req,res)=>{res.send('rss server')});
 app.post('/email',async (req,res)=>{
     let follows=[]
     await axios.get('http://localhost:8081/follow?username='+req.body.username)
