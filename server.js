@@ -19,6 +19,7 @@ app.get("/", (req, res) => {
   res.status(200).send({
     message: "hello from codex",
   });
+  res.send('server secceusful');
 });
 
 app.post("/", async (req, res) => {
