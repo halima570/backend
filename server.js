@@ -8,7 +8,7 @@ app.use(cors());
 
 require("./index");
 dotenv.config();
-require("./rss");
+//require("./rss");
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
@@ -19,7 +19,7 @@ app.get("/", (req, res) => {
   res.status(200).send({
     message: "hello from codex",
   });
-  res.send('server secceusful');
+
 });
 
 app.post("/", async (req, res) => {
