@@ -9,20 +9,16 @@ app.use(cors());
 require("./index");
 dotenv.config();
 require("./rss");
-
 const configuration = new Configuration({
   apiKey: process.env.OPENAI_API_KEY,
 });
 const openai = new OpenAIApi(configuration);
 app.use(express.json());
-// CORS Configuration
-app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
-  next();
-});
+
 app.get("/", (req, res) => {
-  res.send("hello from codex");console.log('wata ban');
+  res.status(200).send({
+    message: "hello from codex",
+  });
 });
 
 app.post("/", async (req, res) => {
@@ -42,10 +38,6 @@ app.post("/", async (req, res) => {
   } catch (error) {
     res.status(500).send(error);
   }
-});
-// Wildcard route handler for unspecified routes
-app.get('*', (req, res) => {
-  res.status(404).send('Page not found');
 });
 
 
