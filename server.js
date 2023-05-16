@@ -14,7 +14,12 @@ const configuration = new Configuration({
 });
 const openai = new OpenAIApi(configuration);
 app.use(express.json());
-
+// CORS Configuration
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', 'https://front1-o4lg-git-master-halima570.vercel.app');
+  res.header('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+  next();
+});
 app.get("/", (req, res) => {
   res.status(200).send({
     message: "hello from codex",
