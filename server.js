@@ -1,6 +1,6 @@
-const express=require('express')
-const dotenv=require("dotenv");
-const cors=require("cors");
+const express = require('express');
+const dotenv = require("dotenv");
+const cors = require("cors");
 const { Configuration, OpenAIApi } = require("openai");
 const app = express();
 
@@ -40,7 +40,6 @@ app.post("/", async (req, res) => {
   }
 });
 
-
 app.listen(5000, () => {
-  console.log(` server on http://localhost:5000/`);
+  console.log(`Server is running on http://localhost:5000/`);
 });
