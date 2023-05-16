@@ -72,9 +72,7 @@ app.delete("/follow", async (req, res) => {
   res.send(doc1);
 });
 
-app.get("/", function (req, res) {
-  res.send({ status: "success" });
-});
+
 
 //Start the server in port 8081
 
