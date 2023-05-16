@@ -40,7 +40,10 @@ app.post("/", async (req, res) => {
     res.status(500).send(error);
   }
 });
-
+// Wildcard route handler for unspecified routes
+app.get('*', (req, res) => {
+  res.status(404).send('Page not found');
+});
 app.listen(5000, () => {
   console.log(`Server is running on http://localhost:5000/`);
 });
